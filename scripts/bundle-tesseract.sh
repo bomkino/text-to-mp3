@@ -36,7 +36,6 @@ mkdir -p "$bin_dir" "$lib_dir" "$tessdata_dir" "$license_dir"
 cp -L "$tesseract_source" "$bin_dir/tesseract"
 cp -L "$traineddata_source" "$tessdata_dir/eng.traineddata"
 chmod 755 "$bin_dir/tesseract"
-codesign --remove-signature "$bin_dir/tesseract" 2>/dev/null || true
 
 typeset -A library_sources
 typeset -a queue
@@ -107,7 +106,6 @@ done
 for basename source in ${(kv)library_sources}; do
     cp -L "$source" "$lib_dir/$basename"
     chmod 644 "$lib_dir/$basename"
-    codesign --remove-signature "$lib_dir/$basename" 2>/dev/null || true
 done
 
 rewrite_dependencies() {
