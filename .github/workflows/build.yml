@@ -18,7 +18,7 @@ jobs:
       - name: Install bundled OCR build dependency
         run: brew install tesseract
       - name: Build debug
-        run: swift build
+        run: swift build -Xswiftc -disable-batch-mode
       - name: Test document import and OCR
         run: ./scripts/test.sh
       - name: Build release app

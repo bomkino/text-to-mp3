@@ -10,10 +10,11 @@ if [[ "$(xcode-select -p)" == "/Library/Developer/CommandLineTools" ]]; then
         DYLD_FRAMEWORK_PATH="$testing_frameworks" \
         DYLD_LIBRARY_PATH="$testing_libraries" \
         swift test \
+            -Xswiftc -disable-batch-mode \
             -Xswiftc -load-plugin-library \
             -Xswiftc "$testing_macros"
         exit
     fi
 fi
 
-swift test
+swift test -Xswiftc -disable-batch-mode

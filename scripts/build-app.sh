@@ -11,8 +11,8 @@ icon_png="$project_dir/.build/AppIcon-1024.png"
 iconset_dir="$project_dir/.build/AppIcon.iconset"
 
 cd "$project_dir"
-swift build -c release
-binary_path="$(swift build -c release --show-bin-path)/TextToMP3"
+swift build -c release -Xswiftc -disable-batch-mode
+binary_path="$(swift build -c release -Xswiftc -disable-batch-mode --show-bin-path)/TextToMP3"
 
 if [[ -d "$app_dir" ]]; then
     rm -rf "$app_dir"
