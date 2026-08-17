@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.1 — 2026-08-17
+
+- Avoid a Swift compiler crash caused by compact actor-isolated binding references.
+- Pin CI to a current Xcode toolchain and keep debug compilation out of batch mode.
+- Keep packaged Homebrew OCR binaries rewriteable before the app applies its own signature.
+
 ## 1.4.0 — 2026-08-17
 
 - Add automatic, on-device Tesseract OCR for scanned and mixed PDFs.

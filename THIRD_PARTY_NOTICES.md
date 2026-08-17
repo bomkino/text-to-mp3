@@ -19,7 +19,7 @@ Text to MP3 does not vendor third-party libraries into its source tree. Release 
 - Recognition data: English `eng.traineddata`, distributed by the Tesseract project under Apache-2.0
 - Relationship: bundled command-line process; OCR runs locally and does not make network requests
 
-The release app also bundles the dynamic-library closure required by the Tesseract executable built for its architecture. The 1.4.0 build contains:
+The release app also bundles the dynamic-library closure required by the Tesseract executable built for its architecture. The 1.4 release line contains:
 
 | Component | Version | Licence |
 | --- | --- | --- |

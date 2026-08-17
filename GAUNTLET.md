@@ -1,10 +1,10 @@
-# Gauntlet receipt — 1.4.0
+# Gauntlet receipt — 1.4.1
 
 Date: 2026-08-17
 
 Artifact: `Text to MP3.zip`
 
-SHA-256: `f13f956fdc9b39096e9e7d0e30f96e48f1bbd8b4421ed68788f0f33e5fdcff49`
+SHA-256: `17617fce1c29d857517cd7e7fcfff37ec884e8a7ddd93b01753913264e11d599`
 
 ## Frozen bar
 
@@ -35,8 +35,9 @@ RapidOCR 3.9.2 was tested against a clean English scan and rejected after it man
 - Inspection found no `/opt/homebrew` or `/usr/local` reference in the packaged Mach-O dependency graph.
 - Bundled Tesseract ran in an empty environment and recovered the exact fixture.
 - The complete app passed deep, strict code-signature verification.
-- The installed `/Applications/Text to MP3.app` reports version 1.4.0, build 9, and successfully OCR'd the fixture.
+- The installed `/Applications/Text to MP3.app` reports version 1.4.1, build 10, and successfully OCR'd the fixture.
 - OCR dependency versions, licence texts, and available SBOM records ship inside the app.
+- A clean GitHub-hosted Mac passed debug compilation, all OCR tests, release packaging, metadata checks, and signature verification.
 
 ## Verdict
 

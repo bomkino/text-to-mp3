@@ -32,7 +32,7 @@ The Microsoft Edge speech endpoint is undocumented and can change or stop workin
 
 ## OCR and PDF limits
 
-The app first uses the PDF's selectable text layer. Any page without one is rendered locally and read with bundled [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR. Version 1.4.0 includes English recognition data; other languages can still be spoken after their text reaches the editor, but scanned-page recognition is English-only for now.
+The app first uses the PDF's selectable text layer. Any page without one is rendered locally and read with bundled [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR. Version 1.4 and later include English recognition data; other languages can still be spoken after their text reaches the editor, but scanned-page recognition is English-only for now.
 
 OCR is fallible, especially on handwriting, unusual layouts, damaged scans, and low-resolution pages. The recognized text stays editable so it can be corrected before generation. Password-protected PDFs must be unlocked first.
 
