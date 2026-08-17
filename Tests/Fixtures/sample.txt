@@ -1,0 +1,4 @@
+Text to MP3 import test.
+
+This sentence proves that a plain-text file reached the native editor.
+The app should report twenty-six words and preserve both paragraphs.

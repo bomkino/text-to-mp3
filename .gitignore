@@ -1,0 +1,10 @@
+.DS_Store
+.build/
+dist/
+DerivedData/
+*.xcuserstate
+*.xccheckout
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.mp3
+*.tmp

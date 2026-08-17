@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swift version
+        run: swift --version
+      - name: Build debug
+        run: swift build
+      - name: Build release app
+        run: ./scripts/build-app.sh
+      - name: Verify app metadata and signature
+        run: |
+          plutil -lint "dist/Text to MP3.app/Contents/Info.plist"
+          codesign --verify --strict --verbose=2 "dist/Text to MP3.app"
