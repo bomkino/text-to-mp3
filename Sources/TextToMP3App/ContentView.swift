@@ -189,7 +189,7 @@ struct ContentView: View {
                     "Language",
                     selection: Binding(
                         get: { model.selectedLocale },
-                        set: model.selectLocale
+                        set: { locale in model.selectLocale(locale) }
                     )
                 ) {
                     ForEach(model.locales, id: \.self) { locale in
@@ -207,7 +207,7 @@ struct ContentView: View {
                     "Voice",
                     selection: Binding(
                         get: { model.selectedVoiceID },
-                        set: model.selectVoice
+                        set: { voiceID in model.selectVoice(voiceID) }
                     )
                 ) {
                     ForEach(model.voicesForSelectedLocale) { voice in
@@ -225,7 +225,7 @@ struct ContentView: View {
                     Slider(
                         value: Binding(
                             get: { Double(model.rate) },
-                            set: model.setRate
+                            set: { value in model.setRate(value) }
                         ),
                         in: -30...100,
                         step: 5
