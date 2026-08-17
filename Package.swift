@@ -16,6 +16,14 @@ let package = Package(
             resources: [
                 .copy("Resources/edge_helper.py")
             ]
+        ),
+        .testTarget(
+            name: "TextToMP3AppTests",
+            dependencies: ["TextToMP3App"],
+            path: "Tests",
+            resources: [
+                .copy("Fixtures")
+            ]
         )
     ]
 )

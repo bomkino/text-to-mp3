@@ -122,7 +122,7 @@ struct ContentView: View {
                 }
                     .buttonStyle(PDEditorialButtonStyle())
                     .disabled(!model.canImportDocument)
-                    .accessibilityHint("Loads selectable text from a PDF or plain-text file into the editor")
+                    .accessibilityHint("Loads a PDF or plain-text file. Scanned PDF pages are read with private on-device OCR.")
 
                 Button("CLEAR", action: model.clear)
                     .buttonStyle(PDEditorialButtonStyle())
@@ -270,7 +270,7 @@ struct ContentView: View {
 
             Spacer(minLength: 16)
 
-            if model.isGenerating {
+            if model.isGenerating || model.isImporting {
                 Button("CANCEL", action: model.cancel)
                     .buttonStyle(PDSecondaryButtonStyle())
                     .keyboardShortcut(.escape, modifiers: [])

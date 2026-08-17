@@ -15,8 +15,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Swift version
         run: swift --version
+      - name: Install bundled OCR build dependency
+        run: brew install tesseract
       - name: Build debug
         run: swift build
+      - name: Test document import and OCR
+        run: ./scripts/test.sh
       - name: Build release app
         run: ./scripts/build-app.sh
       - name: Verify app metadata and signature

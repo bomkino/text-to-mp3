@@ -17,4 +17,4 @@ Do not include real confidential documents in a report. A synthetic reproduction
 
 ## Trust boundary
 
-The app reads user-selected files locally. When the user explicitly generates audio, it sends the editor text to Microsoft's Edge speech service through `edge-tts`. The app downloads Python packages from PyPI during first-run setup. It does not operate a backend or collect telemetry.
+The app reads user-selected files locally. Scanned PDF pages are rendered and passed to the bundled Tesseract process entirely on the Mac. When the user explicitly generates audio, it sends the editor text to Microsoft's Edge speech service through `edge-tts`. The app downloads Python packages from PyPI during first-run setup. It does not operate a backend or collect telemetry.

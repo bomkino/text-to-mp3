@@ -153,7 +153,7 @@ final class TTSViewModel: ObservableObject {
 
         switch documentState {
         case .importing:
-            return "Reading your document"
+            return documentProgress?.stage.title ?? "Reading your document"
         case .imported:
             return "Document ready"
         case .failed:
@@ -274,7 +274,7 @@ final class TTSViewModel: ObservableObject {
         let panel = NSOpenPanel()
         panel.title = "Open a Document"
         panel.prompt = "Open"
-        panel.message = "Choose a PDF or plain-text file. The document stays on this Mac."
+        panel.message = "Choose a PDF or plain-text file. Scanned PDF pages are read privately on this Mac."
         panel.allowedContentTypes = DocumentImporter.allowedContentTypes
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
@@ -362,6 +362,7 @@ final class TTSViewModel: ObservableObject {
 
     func cancel() {
         generationTask?.cancel()
+        documentTask?.cancel()
     }
 
     func revealLastOutput() {

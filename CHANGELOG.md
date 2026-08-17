@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0 — 2026-08-17
+
+- Add automatic, on-device Tesseract OCR for scanned and mixed PDFs.
+- Bundle the English OCR engine and recognition data so installed builds need no separate setup.
+- Show scanned-page stage, page progress, and an ETA after the first OCR page.
+- Let Escape and the visible Cancel button stop document reading as well as MP3 generation.
+- Preserve the existing editor text when OCR fails or is cancelled.
+- Package OCR dependency licence texts, component versions, and SBOM records.
+- Add automated plain-text, scanned-PDF, and OCR-cancellation tests.
+
 ## 1.3.0 — 2026-08-17
 
 - Add local PDF and plain-text document import.

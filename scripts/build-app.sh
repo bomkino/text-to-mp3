@@ -22,6 +22,8 @@ mkdir -p "$binary_dir" "$resources_dir"
 cp "$binary_path" "$binary_dir/TextToMP3"
 cp "$project_dir/Packaging/Info.plist" "$contents_dir/Info.plist"
 cp "$project_dir/Sources/TextToMP3App/Resources/edge_helper.py" "$resources_dir/edge_helper.py"
+cp "$project_dir/THIRD_PARTY_NOTICES.md" "$resources_dir/THIRD_PARTY_NOTICES.md"
+"$project_dir/scripts/bundle-tesseract.sh" "$resources_dir/OCR"
 
 swift "$project_dir/scripts/make-icon.swift" "$icon_png"
 if [[ -d "$iconset_dir" ]]; then
@@ -37,6 +39,13 @@ iconutil -c icns "$iconset_dir" -o "$resources_dir/AppIcon.icns"
 
 chmod 755 "$binary_dir/TextToMP3"
 plutil -lint "$contents_dir/Info.plist"
+
+while IFS= read -r nested_code; do
+    if file "$nested_code" | grep -q "Mach-O"; then
+        codesign --force --sign - --options runtime "$nested_code"
+    fi
+done < <(find "$resources_dir/OCR" -type f -print)
+
 codesign --force --sign - --options runtime "$app_dir"
 codesign --verify --strict --verbose=2 "$app_dir"
 
